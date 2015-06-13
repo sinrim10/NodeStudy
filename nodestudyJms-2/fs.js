@@ -25,10 +25,10 @@ fs.writeFile("D:\\App\\test.txt",'hello world! by nodejs','UTF-8',function(err){
 
 */
 
-fs.stat("d:\\App\\test2.txt",function (err, stats){
+fs.stat("test2.txt",function (err, stats){
 	if(err){
 		
-		fs.writeFile("D:\\App\\test2.txt",'hello world! by nodejs~!','UTF-8',function(err){
+		fs.writeFile("test2.txt",'hello world! by nodejs~!','UTF-8',function(err){
 			if(err) throw err;
 			
 		});		
