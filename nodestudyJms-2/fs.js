@@ -5,12 +5,13 @@
 // 파일 시스템 정의
 var fs = require('fs');
 
+var files;
 
 // 디렉토리 읽기
 fs.readdir("D:\\App",function(err,list){
 	
 	console.log(list);
-	
+	files = list;
 });
 
 
@@ -43,7 +44,4 @@ fs.stat("d:\\App\\test2.txt",function (err, stats){
 });
 
 
-// 데이터 스트림
-//var request = require('request');
-//var stream = request('http://kkforgg.blog.me/rss');
 
