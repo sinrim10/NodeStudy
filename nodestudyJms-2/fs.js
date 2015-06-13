@@ -8,7 +8,7 @@ var fs = require('fs');
 var files;
 
 // 디렉토리 읽기
-fs.readdir("D:\\App",function(err,list){
+fs.readdir("D:\\App",function( err,list){
 	
 	console.log(list);
 	files = list;
