@@ -1,5 +1,8 @@
 /**
- * New node file
+ * TCP ( Transmission Control Protocol )
+ * 연결지향이며, 자체적으로 오류를 처리하여, 네트워크 전송중 순서가 뒤바뀐
+ * 메시지를 교정 시켜주는 역할을 한다.
+ * 데이터의 신뢰도가 중요하다고 판단될때 주로 사용한다.
  */
 
 var net = require('net');
