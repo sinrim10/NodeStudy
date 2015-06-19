@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+    var socket = io.connect('http://127.0.0.1:8888');
+    socket.on('http', function (data) {
+        console.log('http : ' + data);
+        $("#content").append("<li>"+data+"</li>");
+    });
+$(document).ready(function(){
+
+    $("#bt_send").click(function(){
+        socket.emit("data",$("#massage").val());
+        console.log($("#massage").val())
+        $("#massage").val("");
+    });
+})
+</script>
+<body>
+    <ul name="content" id="content"></ul>
+    <input name="massage" id="massage" type="text">
+    <input type="button" name="bt_send" id="bt_send" value="전송">
+</body>
+</html>
