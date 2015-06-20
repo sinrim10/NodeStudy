@@ -9,3 +9,5 @@ process.on('message',function(m){
 });
 
 process.send({foo:'bar'});
+
+process.exit();

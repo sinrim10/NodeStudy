@@ -41,12 +41,10 @@ var spawn = cp.spawn;
 var n = cp.fork('child_fork.js');
 
 n.on('message',function (m){
-	
 	console.log('parent got message : ' + m);
-	
 })
 
-n.send({hello:'world'})
+n.send({hello:'world'});
 
 n.on('close',function(code, signal){
 	
