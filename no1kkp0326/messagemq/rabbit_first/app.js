@@ -1,0 +1,33 @@
+var http = require('http'),
+	amqp = require('amqp');
+
+//var rabbit = amqp.createConnection();
+
+
+var rabbit = amqp.createConnection({ host: '58.229.240.136'
+    , port: 5672
+    , login: 'no1kkp0326'
+    , password: '86042323'
+    //, vhost: '/'
+});
+
+rabbit.on('ready', function(){
+	rabbit.exchange('my-first-exchange', {type: 'direct', autoDelete: false}, function(ex){
+        console.log("start", ex);
+
+		startServer(ex);
+	});
+});
+
+function startServer(ex)
+{
+	var server = http.createServer(function(req, res){
+		console.log(req.url);
+		ex.publish('first-queue', {message: req.url});
+
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.end('<h1>Simple HTTP Server in Node.js!</h1>');
+	});
+
+	server.listen(8001);
+}
