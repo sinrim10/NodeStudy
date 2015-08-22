@@ -16,6 +16,12 @@ var server = net.createServer(function (c){
 		
 	})
 	
+	c.on('error', function (err){
+		
+		console.log("Error !! " + err);
+		
+	})
+	
 	c.write('hello\r\n');
 	c.pipe(c);
 	
