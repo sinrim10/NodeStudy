@@ -1,6 +1,14 @@
 var amqp = require('amqp');
 
-var rabbit = amqp.createConnection();
+//var rabbit = amqp.createConnection();
+
+var rabbit = amqp.createConnection({
+    host: 'localhost'
+    , port: 5672
+    , login: 'no1kkp0326'
+    , password: '86042323'
+    , vhost: '/'
+});
 
 rabbit.on('ready', function(){
   rabbit.exchange('credit_charge', {autoDelete: false}, function(ex){

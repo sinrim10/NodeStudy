@@ -6,7 +6,15 @@ var app = express();
 
 app.use(express.static(__dirname));
 
-var rabbit = amqp.createConnection();
+//var rabbit = amqp.createConnection();
+var rabbit = amqp.createConnection({
+    host: 'localhost'
+    , port: 5672
+    , login: 'no1kkp0326'
+    , password: '86042323'
+    , vhost: '/'
+});
+
 
 rabbit.on('ready', function(){
   rabbit.exchange('credit_charge', {autoDelete: false}, function(ex){
@@ -24,10 +32,11 @@ function startServer(ex)
     rabbit.queue('', {exclusive: true, autoDelete: true}, function(q){
       q.bind('credit_charge', q.name);
       ex.publish('charge', {card: 'details'}, {replyTo: q.name});
+        console.log(q);
       q.subscribe(function(message){
         console.log(message);
         q.destroy();
-        q.close();
+          q.close();
         res.send('Charged! Thanks!');
       });
     });
@@ -45,6 +54,7 @@ function startServer(ex)
       });
 
       socket.on('charge', function(data){
+          console.log(data);
         ex.publish('charge', {card: 'details'}, {replyTo: q.name, headers: {emitEvent: 'charged'}});
       });
 

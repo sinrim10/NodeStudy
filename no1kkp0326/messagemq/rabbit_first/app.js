@@ -4,17 +4,17 @@ var http = require('http'),
 //var rabbit = amqp.createConnection();
 
 
-var rabbit = amqp.createConnection({ host: '58.229.240.136'
+var rabbit = amqp.createConnection({
+    host: 'localhost'
     , port: 5672
     , login: 'no1kkp0326'
     , password: '86042323'
-    //, vhost: '/'
+    , vhost: '/'
 });
 
 rabbit.on('ready', function(){
-	rabbit.exchange('my-first-exchange', {type: 'direct', autoDelete: false}, function(ex){
-        console.log("start", ex);
-
+    rabbit.exchange('my-first-exchange', {type: 'direct', autoDelete: false}, function(ex){
+       console.log("start", ex);
 		startServer(ex);
 	});
 });
