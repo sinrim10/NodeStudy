@@ -1,16 +1,6 @@
-# NodeStudy
-노드스터디 관련 자료및 소스
-<br>
+/**
 
-<h3><a href='http://mongoosejs.com/docs/api.html'>
-mongoose Api
-</a></h3>
-
-<h3><a href='https://docs.google.com/spreadsheets/d/1x8vaTVmiGJVnr3DELGdirAfYsG_HYawYYvVPfKd_T5U/pubhtml?gid=0&single=true'>
-노드 스터디 일정
-</a></h3>
-
-<h3>1. TLS</h3>
+	1. TLS
 	 - 전송층 보안/보안소켓층(TLS/SSL)은 인터넷에서 안전하게 통신할 수 있게 고안된 암호화 프로토콜이다.
 	 - 네스케이프에 의해서 SSL이 발명되고, 이것이 표준화 기구인 IETF의 관리로 변경되면서 TLS라는 이름으로 바뀌었다.
 	 - SSL 인증서는 클라이언트와 서버간의 통신을 제 3자가 보증해주는 전자화된 문서
@@ -33,3 +23,6 @@ mongoose Api
 	 4) SSL 인증서의 내용
 	  - 서비스의 정보(인증서를 발급한 CA, 서비스의 도메인) / 서버측 공개키
 	  - 위 내용이 CA에 의해서 암호화 되며, 이때 사용하는 암호화 기법이 공개키방식이다. 
+
+	  
+**/
